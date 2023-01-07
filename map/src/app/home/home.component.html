@@ -1,0 +1,28 @@
+<div class="col col-md-8">
+  <agm-map [latitude]="latitude" [longitude]="longitude" (click)="reqAdress(this.latitude, this.longitude)" (mapClick)="onChoseLocation($event)" >
+    <agm-marker [latitude]="latitude"  [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+  </agm-map>
+  <form [formGroup]="branchForm">
+    <div class="row">
+<!--        <div class="col col-sm">-->
+<!--            <input type="button" [disabled]="!locationChosen" (click)="reqAdress(this.latitude, this.longitude)" class="btn btn-dark" formControlName="button">-->
+<!--        </div>-->
+        <div class="col col-md-9">
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="openaddress">Açık Adres</span>
+            </div>
+            <input type="name" [value]="acikadres" [attr.disabled]="acikadres ? null : false" placeholder="Harita üzerinden açık adresinizi seçiniz" formControlName="address" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-5">
+        <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="postcode">Posta Kodu</span>
+          </div>
+          <input type="name" [value]="postcode" [attr.disabled]="postcode ? null : false" class="form-control">
+        </div>
+    </div>
+  </form>
+</div>
